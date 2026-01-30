@@ -7,7 +7,7 @@ public class Apothecary {
 
         System.out.println("Welcome to my apothecary! Please enter your name here: ");
         String name = scanner.nextLine();
-        if (name == ""){ //doesnt work right now
+        if (name.equals("")){ //test this now
             name = "Apprentice";
         }else{
             name = name.toLowerCase();
@@ -19,23 +19,27 @@ public class Apothecary {
         System.out.println("Hello " + name + ", which potion do you want me to brew? ");
 
         String potion = scanner.nextLine();
-        String str_potion = potion.substring(0, 1).toUpperCase() + potion.substring(1, potion.length()).toLowerCase();
         potion = potion.toLowerCase();
+        String str_potion;
 
         String ingredient;
 
         switch (potion){
             case "potion of clarity":
                 ingredient = "2 Vials of Crystal Dew";
+                str_potion = "Potion of Clarity";
                 break;
             case "elixir of agility":
                 ingredient = "3 Swift Feathers";
+                str_potion = "Elixir of Agility";
                 break;
             case "healing draught":
                 ingredient = "1 Phoenix Feather and 2 Vials of Moonlit Dew";
+                str_potion = "Healing Draught";
                 break;
             case "elixir of elemental power":
                 ingredient = "1 Vial of Moonlit Dew, 3 Lava Stones, and 2 Phoenix Feathers";
+                str_potion = "Elixir of Elemental Power";
                 break;
             case "death poison":
                 System.out.println("GUARDS!");
@@ -51,6 +55,10 @@ public class Apothecary {
 
         quantity = (quantity < 1) ? 1 : quantity;
 
+        if (quantity > 1){
+            System.out.println("fix this");
+        }
+            
         int amount = 0;
         int owed = 0;
         switch (potion){
@@ -61,6 +69,7 @@ public class Apothecary {
                 if (amount > crystal_dew){
                     owed = (amount - crystal_dew) * 10;
                 }
+                owed = owed + 10 + (15 * quantity);
                 break;
             case "elixir of agility":
                 System.out.println("How many Swift Feathers will you provide? ");
@@ -69,6 +78,7 @@ public class Apothecary {
                 if (amount > swift){
                     owed = (amount - swift) * 20;
                 }
+                owed = owed + 10 + (15 * quantity);
                 break;
             case "healing draught":
                 System.out.println("How many Phoenix Feathers will you provide? ");
@@ -84,7 +94,8 @@ public class Apothecary {
                 if (amount > dew){
                     owed = ((amount - phoenix) * 15) + owed;
                 }
-                
+
+                owed = owed + 20 + (quantity * 25);
                 break;
             case "elixir of elemental power":
                 System.out.println("How many Vials of Moonlit Dew will you provide? ");
@@ -107,14 +118,22 @@ public class Apothecary {
                     owed = ((amount - phoenix_feathers) * 50) + owed;
                 }
 
+                owed = owed + 20 + (quantity * 25);
                 break;
         }
 
         System.out.println(owed);
         System.out.println("Is there anything I should know? ");
-        boolean discount = false;
         
         String statement = scanner.nextLine();
+        if (statement.equals("This order is for the King"){
+                owed = owed * 0.5;
+        }
 
+        Math.round(owed); // probably doesn't work
+
+        System.out.println(name + ", thank you for requesting the " + str_potion + " ." + " The cost is $ " + owed + ".";) 
+        
     }
+
 }
