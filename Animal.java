@@ -1,7 +1,5 @@
 
-import java.util.Scanner;
-
-//I worked on this alone.
+//I worked on the homework assignment alone, using only course materials.
 
 /**
  * This class represents an animal.
@@ -107,7 +105,7 @@ public class Animal {
 
     public void doActivity(int duration, boolean dangerous) {
         energy = energy - (duration * 5);
-        if (dnagerous) {
+        if (dangerous) {
             health = health - (duration * 3);
         }
     }
@@ -123,9 +121,12 @@ public class Animal {
         if (energy < 50) {
             return true;
         }
+        return false;
     }
 
-    public //toString class
+    public String toString() {
+        return "I am " + species + " " + name + ". I have " + energy + " energy and " + health + " health";
+    }
 
 }
 
