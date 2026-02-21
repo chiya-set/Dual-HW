@@ -1,4 +1,5 @@
 public class Habitat {
+
     private String name;
     private Animal[] animals;
     private int animalCount;
@@ -55,27 +56,39 @@ public class Habitat {
 
     public void feedAnimals(int food) {
         for (Animal mal : animals) {
-            mal.eat(food);
+            if (mal != null) {
+                mal.eat(food);
+            }
         }
     }
 
     public Animal[] getAllAnimals() {
-        Animal[] retAnimals = new Animal[animalCount];
-        for (int i = 0; i < animals.length; i++) {
-            if (animals[i] != null) {
-                retAnimals[i] = animals[i];
-            }
+    Animal[] retAnimals = new Animal[animalCount];
+    int index = 0;
+
+    for (int i = 0; i < animals.length; i++) {
+        if (animals[i] != null) {
+            retAnimals[index] = animals[i];
+            index++;
         }
-        return retAnimals;
+    }
+    return retAnimals;
     }
 
     public Animal[] getHungryAnimals() {
-        Animal[] hungryAnimals = new Animal[animalCount];
+        Animal[] temp = new Animal[animalCount];
+        int index = 0;
 
         for (int i = 0; i < animals.length; i++) {
-            if (animals[i].isHungry()) {
-                hungryAnimals[i] = animals[i];
+            if (animals[i] != null && animals[i].isHungry()) {
+                temp[index] = animals[i];
+                index++;
             }
+        }
+
+        Animal[] hungryAnimals = new Animal[index];
+        for (int i = 0; i < index; i++) {
+            hungryAnimals[i] = temp[i];
         }
 
         return hungryAnimals;
@@ -85,11 +98,11 @@ public class Habitat {
         String strAnimals = "";
 
         if (animalCount > 1 || animalCount == 0) {
-            strAnimals = "Animals";
+            strAnimals = "animals";
         } else if (animalCount == 1) {
-            strAnimals = "Animal";
+            strAnimals = "animal";
         }
-        return name + " has " + animalCount + strAnimals + " and has a capacity of " + getCapacity();
+        return name + " has " + animalCount + " " + strAnimals + " and has a capacity of " + getCapacity();
     }
 
     public String getName() {

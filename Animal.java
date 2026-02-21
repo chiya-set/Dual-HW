@@ -95,12 +95,15 @@ public class Animal {
         }
     }
 
-    public static int getNumAnimals() {
+    public static int getNumberOfAnimals() {
         return numberOfAnimals;
     }
 
     public void eat(int numFood) {
         energy = energy + (numFood * 2);
+        if (energy > 100) {
+            energy = 100;
+        }
     }
 
     public void doActivity(int duration, boolean dangerous) {
@@ -110,7 +113,7 @@ public class Animal {
         }
     }
 
-    public void goToHospital() {
+    public void goToZooHospital() {
         health = 100;
         if (energy < 60) {
             energy = 60;
