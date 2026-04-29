@@ -1,0 +1,32 @@
+1:
+Problem: Nowadays there are many, sometimes fatal, accidents regarding bus drivers losing control of their vehicles. In August 2025, 5 were killed in a bus crash due to their distracted driver. On April 22nd 2026, around 40 kids were endangered on a school bus due to the driver losing conciousness. There is an issue in bus drivers losing control of their vehicles and causing risk to others. - BOTH.
+Target Customer: School Boards, Citizens who don't own cars, School children, Citizens unable to drive cars, bus drivers
+Customer Need: 7
+Known People With Problem: 2000
+Target Market Size: 36000000
+Competitors: Volvo Buses, Marta, FlixBus, Greyhound, Megabus
+
+2:
+Problem: Many students and professionals struggle with managing their workload effectively, and current programs used today could be easily set aside. These issues thus lead to prevelant problems such as burnout, fatigue, and decreased productivity. Acoording to a 2024 SHRM report, 45% of workers feel emotionally drained. They need a program that not only helps them keep track of their work, but also keeps them motivated. - BOTH
+Target Customer: School students, Workplace Professionals, Young workers, 
+Customer Need: 8
+Known People With Problem: 2100
+Target Market Size: 105000000
+Competitors: Notion, Todoist, Trello, Focus Friend
+
+3:
+Problem: Ever have issues coordinating with mutuals about plans, or scheduling hangouts with peers? Especially as people age, it gets increasingly harder to form connections with others and build community. Accoording to a study by Harvard University, 68% of people report struggling to build community. - BOTH
+Target Customer: School students, Workplace Professionals, Young workers, Mothers, Fathers, Adults
+Customer Need: 8
+Known People With Problem: 1700
+Target Market Size: 300000000
+Competitors: Bumble for Friends, Timeleft, Hey Vina!, RealRoots, Instagram
+
+4:
+Problem: In a carnivore-rich society, it is very hard to be vegan. People often don't know where vegan restaurants are nor know about any of the vegan alternatives served anywhere else. It's recorded that about 84% of people abandon vegan or vegetarian diets. There is a problem in making it easier for people to find vegan foods. - BOTH
+Target Customer: Vegan Adults, Vegan Children
+Customer Need: 4
+Known People With Problem: 20
+Target Market Size: 3300000
+Competitors: HappyCow, Vegan Friendly, Abillion, VeganXpress
+
