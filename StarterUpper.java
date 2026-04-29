@@ -1,25 +1,22 @@
 //I worked on the homework assignment alone, using only course materials.
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
+import javafx.stage.Stage;
 
 /**
  * This is a class that organizes startup ideas.
@@ -27,11 +24,13 @@ import java.util.Collections;
  * @author Priscilla Setiadi
  * @version 1.0
  */
-public class StarterUpper extends Application{
-    public static void main(String[] args) {
-        launch(args);
-    }
+public class StarterUpper extends Application {
 
+    /**
+     * Start method.
+     *
+     * @param mainStage first variable
+     */
     public void start(Stage mainStage) {
 
         Label initialsLabel = new Label("P.G.S");
@@ -66,24 +65,27 @@ public class StarterUpper extends Application{
         addButton.setOnAction(event -> {
 
             try {
-                if (problemField.getText().isEmpty() || customerField.getText().isEmpty() || needField.getText().isEmpty() 
-                    || experienceField.getText().isEmpty() || sizeField.getText().isEmpty() || competitorField.getText().isEmpty()) {
-                        throw new Exception();
+                if (problemField.getText().isEmpty() || customerField.getText().isEmpty()
+                    || needField.getText().isEmpty() || experienceField.getText().isEmpty()
+                    || sizeField.getText().isEmpty() || competitorField.getText().isEmpty()) {
+                    throw new Exception();
                 }
 
                 int need = Integer.parseInt(needField.getText());
                 int experience = Integer.parseInt(experienceField.getText());
                 int size = Integer.parseInt(sizeField.getText());
 
-                if (need < 1 || need > 10) throw new Exception();
+                if (need < 1 || need > 10) {
+                    throw new Exception();
+                }
 
-                StartUpIdea idea = new StartUpIdea(problemField.getText(), customerField.getText(), 
+                StartUpIdea idea = new StartUpIdea(problemField.getText(), customerField.getText(),
                     need, experience, size, competitorField.getText());
 
                 ideas.add(idea);
                 outputLabel.setText("Yay, ideas added! Total ideas: " + ideas.size());
 
-            } catch(Exception e) {
+            } catch (Exception e) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 errorAlert.setHeaderText("Invalid input!");
                 errorAlert.setContentText("Please fill in all fields.");
@@ -98,7 +100,6 @@ public class StarterUpper extends Application{
         });
 
         resetButton.setOnAction(new EventHandler<ActionEvent>() {
-            
             public void handle(ActionEvent event) {
                 Alert confirmMsg = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmMsg.setContentText("Are you SURE you want to reset?");
@@ -119,14 +120,14 @@ public class StarterUpper extends Application{
                     if (file.exists()) {
                         file.delete();
                     }
-                    
+
                     outputLabel.setText("Reset complete.");
                 }
             }
         });
 
-        Button GTIDButton = new Button("My GTID");
-        GTIDButton.setOnAction((ActionEvent event) -> {
+        Button idButton = new Button("My GTID");
+        idButton.setOnAction((ActionEvent event) -> {
             System.out.println("904196983");
         });
 
@@ -134,7 +135,7 @@ public class StarterUpper extends Application{
             try {
                 FileUtil.saveIdeasToFile(ideas, new File("ideas.txt"));
                 outputLabel.setText("Ideas saved!");
-            } catch(Exception exception) {
+            } catch (Exception exception) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Error saving ideas");
                 alert.showAndWait();
@@ -144,10 +145,10 @@ public class StarterUpper extends Application{
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
 
-        root.getChildren().addAll(initialsLabel, problemLabel, problemField, customerLabel
-            , customerField, needLabel, needField, experienceLabel, experienceField, sizeLabel
-            , sizeField, competitorLabel, competitorField, addButton, sortButton, resetButton
-            , saveButton, GTIDButton, outputLabel);
+        root.getChildren().addAll(initialsLabel, problemLabel, problemField, customerLabel,
+            customerField, needLabel, needField, experienceLabel, experienceField, sizeLabel,
+            sizeField, competitorLabel, competitorField, addButton, sortButton, resetButton,
+            saveButton, idButton, outputLabel);
 
         Scene scene = new Scene(root, 600, 650);
         mainStage.setScene(scene);
